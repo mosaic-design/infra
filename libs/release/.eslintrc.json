@@ -1,0 +1,25 @@
+{
+    "extends": ["../../.eslintrc.json"],
+    "ignorePatterns": ["!**/*", "jest.config.js", "**.spec.ts"],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": ["libs/release/tsconfig.*?.json", "tsconfig.*?.json"]
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "rules": {
+                "@typescript-eslint/ban-ts-comment": "off"
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {}
+        },
+        {
+            "files": ["*.js", "*.jsx"],
+            "rules": {}
+        }
+    ]
+}

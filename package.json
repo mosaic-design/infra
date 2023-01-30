@@ -1,0 +1,57 @@
+{
+    "name": "mosaic-design-infra",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "release:stage-commit": "npm run build:release & node dist/libs/release/bin/dist-cli.js release stage-commit -c \"Infrastructure\" -u \"https://github.com/mosaic-design/infra.git\"",
+        "release:github-ci": "npm run build:release & node dist/libs/release/bin/dist-cli.js release publish-ci-gitlab",
+        "build:release": "nx run release:build",
+        "build:affected": "nx affected --base=origin/main --target=build --parallel",
+        "build:all": "nx run-many --target=build --all --parallel",
+        "lint:all": "nx run-many --target=lint --all --parallel",
+        "test:all": "nx run-many --target=test --all --parallel"
+    },
+    "release": {
+        "packages": [
+            "libs/release"
+        ]
+    },
+    "devDependencies": {
+        "@mosaic-design/workspace": "1.2.1",
+        "@nrwl/eslint-plugin-nx": "15.6.2",
+        "@nrwl/jest": "15.6.2",
+        "@nrwl/js": "^15.6.2",
+        "@nrwl/linter": "15.6.2",
+        "@nrwl/webpack": "15.6.2",
+        "@octokit/rest": "^18.9.1",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@types/conventional-changelog": "^3.1.1",
+        "@types/conventional-changelog-writer": "^4.0.2",
+        "@types/inquirer": "^7.3.2",
+        "@types/jest": "27.5.1",
+        "@types/merge2": "^1.4.0",
+        "@types/node": "16.11.7",
+        "@types/request": "^2.48.8",
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "@typescript-eslint/parser": "^5.36.1",
+        "chalk": "^4.0.0",
+        "commander": "9.3.0",
+        "conventional-changelog": "^3.1.10",
+        "conventional-changelog-angular": "^5.0.13",
+        "conventional-changelog-writer": "^5.0.1",
+        "dotenv": "^10.0.0",
+        "eslint": "~8.15.0",
+        "eslint-config-prettier": "8.1.0",
+        "glob": "^7.1.3",
+        "inquirer": "^7.3.3",
+        "jest": "27.5.1",
+        "merge2": "^1.2.3",
+        "nx": "15.6.2",
+        "prettier": "^2.6.2",
+        "request": "^2.88.0",
+        "ts-jest": "27.1.5",
+        "ts-node": "10.9.1",
+        "tslib": "^2.3.0",
+        "typescript": ">= 4.3.x"
+    }
+}
