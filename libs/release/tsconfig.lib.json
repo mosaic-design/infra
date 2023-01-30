@@ -1,0 +1,14 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../dist/out-tsc",
+        "types": ["node"],
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationMap": false,
+        "sourceMap": false
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["jest.config.js", "src/**/*.spec.ts", "src/**/*.test.ts"]
+}
