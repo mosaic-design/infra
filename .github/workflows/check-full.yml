@@ -1,4 +1,5 @@
 name: Check All Libs
+run-name: Check main branch
 on:
     push:
         branches:
