@@ -6,10 +6,12 @@
         "release:stage-commit": "npm run build:release & node dist/libs/release/bin/dist-cli.js release stage-commit -c \"Infrastructure\" -u \"https://github.com/mosaic-design/infra.git\"",
         "release:github-ci": "npm run build:release & node dist/libs/release/bin/dist-cli.js release publish-ci-gitlab",
         "build:release": "nx run release:build",
-        "build:affected": "nx affected --base=origin/main --target=build --parallel",
         "build:all": "nx run-many --target=build --all --parallel",
+        "build:affected": "nx affected --base=origin/main --target=build --parallel",
         "lint:all": "nx run-many --target=lint --all --parallel",
-        "test:all": "nx run-many --target=test --all --parallel"
+        "lint:affected": "nx affected --base=origin/main --target=lint --parallel",
+        "test:all": "nx run-many --target=test --all --parallel",
+        "test:affected": "nx affected --base=origin/main --target=test --parallel"
     },
     "release": {
         "packages": [
