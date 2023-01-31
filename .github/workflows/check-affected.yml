@@ -2,13 +2,14 @@ name: Check Affected Libs
 on: [pull_request]
 jobs:
     build-and-check:
-        name: Build And Check
+        name: Build And Check Affected
         runs-on: ubuntu-latest
         steps:
             - name: Git checkout
               uses: actions/checkout@v2
               with:
                   persist-credentials: false
+                  fetch-depth: 0
 
             - name: Use Node.js
               uses: actions/setup-node@v2
