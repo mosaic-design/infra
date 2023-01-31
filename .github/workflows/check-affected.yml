@@ -1,13 +1,9 @@
-name: Publish To NPM
-on:
-    push:
-        tags:
-            - '[0-9]+.[0-9]+.[0-9]+'
+name: Check Affected Libs
+on: [pull_request]
 jobs:
-    build-and-publish:
-        name: Build and Publish
+    build-and-check:
+        name: Build And Check
         runs-on: ubuntu-latest
-
         steps:
             - name: Git checkout
               uses: actions/checkout@v2
@@ -32,16 +28,13 @@ jobs:
               run: npm ci --ignore-scripts
 
             - name: Lint affected libs
-              run: npm run lint:all
+              run: npm run lint:affected
 
             - name: Test affected libs
-              run: npm run test:all
+              run: npm run test:affected
 
             - name: Build affected libs
-              run: npm run build:all
+              run: npm run build:affected
 
-            - name: NPM publish
-              run: npm run release:github-ci
-              with:
-                  token: ${{ secrets.NPM_AUTH_TOKEN }}
-                  tag: 'latest'
+
+

@@ -1,13 +1,12 @@
-name: Publish To NPM
+name: Check All Libs
 on:
     push:
-        tags:
-            - '[0-9]+.[0-9]+.[0-9]+'
+        branches:
+            - main
 jobs:
-    build-and-publish:
-        name: Build and Publish
+    build-and-check:
+        name: Build And Check
         runs-on: ubuntu-latest
-
         steps:
             - name: Git checkout
               uses: actions/checkout@v2
@@ -40,8 +39,5 @@ jobs:
             - name: Build affected libs
               run: npm run build:all
 
-            - name: NPM publish
-              run: npm run release:github-ci
-              with:
-                  token: ${{ secrets.NPM_AUTH_TOKEN }}
-                  tag: 'latest'
+
+
