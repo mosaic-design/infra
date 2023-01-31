@@ -1,5 +1,5 @@
 name: Check Affected Libs
-run-name: Pull Request (@${{ github.event.pull_request.author }}) / ${{ github.event.pull_request.title }}
+run-name: Pull Request (@${{ github.event.pull_request.author.user }}) / ${{ github.event.pull_request.title }}
 on: [pull_request]
 jobs:
     build-and-check:
