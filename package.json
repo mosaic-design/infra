@@ -1,6 +1,6 @@
 {
     "name": "mosaic-design-infra",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "scripts": {
         "release:stage-commit": "ts-node --project packages/release/tsconfig.lib.json packages/release/src/bin/dist-cli.js stage-commit -c \"Infrastructure\" -u \"https://github.com/mosaic-design/infra.git\"",
