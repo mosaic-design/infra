@@ -1,0 +1,39 @@
+{
+    "name": "@mosaic-design/release",
+    "description": "Mosaic Release",
+    "version": "0.0.0",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "development",
+        "release",
+        "mosaic"
+    ],
+    "bin": {
+        "mosaic-release": "./bin/dist-cli.js"
+    },
+    "exports": {
+        "./package.json": {
+            "default": "./package.json"
+        }
+    },
+    "peerDependencies": {
+        "commander": "^{{VERSION}}",
+        "chalk": "^{{VERSION}}",
+        "inquirer": "^{{VERSION}}",
+        "@octokit/rest": "^{{VERSION}}",
+        "conventional-changelog": "^{{VERSION}}",
+        "conventional-changelog-writer": "^{{VERSION}}",
+        "conventional-changelog-angular": "^{{VERSION}}",
+        "request": "^{{VERSION}}",
+        "merge2": "^{{VERSION}}",
+        "dotenv": "^{{VERSION}}",
+        "glob": "^{{VERSION}}",
+        "typescript": "^{{VERSION}}"
+    },
+    "devDependencies": {
+        "ts-node": "^{{VERSION}}"
+    }
+}

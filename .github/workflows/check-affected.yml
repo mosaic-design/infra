@@ -1,0 +1,42 @@
+name: Check Affected Libs
+run-name: Pull request / ${{ github.event.pull_request.title }}
+on: [pull_request]
+jobs:
+    build-and-check:
+        name: Build And Check Affected
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+                  fetch-depth: 0
+
+            - name: Use Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 16.13.0
+
+            - name: Cache node_modules
+              uses: actions/cache@v2
+              id: modules-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: ${{ runner.os }}-modules-
+
+            - name: Install dependencies
+              if: steps.modules-cache.outputs.cache-hit != 'true'
+              run: npm ci --ignore-scripts
+
+            - name: Lint affected libs
+              run: npm run lint:affected
+
+            - name: Test affected libs
+              run: npm run test:affected
+
+            - name: Build affected libs
+              run: npm run build:affected
+
+
+
