@@ -115,11 +115,11 @@ export class GitClient {
      * Spawns a child process running Git. The "stderr" output is inherited and will be printed
      * in case of errors. This makes it easier to debug failed commands.
      */
-    private spawnGitProcess(args: string[], printStderr = true): SpawnSyncReturns<string> {
+    private spawnGitProcess(args: string[], printStderr = false): SpawnSyncReturns<string> {
         return spawnSync('git', args, {
             cwd: this.projectDir,
             stdio: ['pipe', 'pipe', printStderr ? 'inherit' : 'pipe'],
-            encoding: 'utf8'
+            encoding: 'utf-8'
         });
     }
 }
