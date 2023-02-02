@@ -3,8 +3,8 @@
     "version": "0.0.1",
     "license": "MIT",
     "scripts": {
-        "release:stage-commit": "ts-node --project libs/release/tsconfig.lib.json libs/release/src/bin/dist-cli.js stage-commit -c \"Infrastructure\" -u \"https://github.com/mosaic-design/infra.git\"",
-        "release:publish-libs": "ts-node --project libs/release/tsconfig.lib.json libs/release/src/bin/dist-cli.js publish-ci",
+        "release:stage-commit": "ts-node --project packages/release/tsconfig.lib.json packages/release/src/bin/dist-cli.js stage-commit -c \"Infrastructure\" -u \"https://github.com/mosaic-design/infra.git\"",
+        "release:publish-libs": "ts-node --project packages/release/tsconfig.lib.json packages/release/src/bin/dist-cli.js publish-ci",
         "build:release": "nx run release:build",
         "build:all": "nx run-many --target=build --all --parallel",
         "build:affected": "nx affected --base=origin/main --target=build --parallel",
@@ -15,7 +15,7 @@
     },
     "release": {
         "packages": [
-            "libs/release"
+            "packages/release"
         ]
     },
     "devDependencies": {

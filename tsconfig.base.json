@@ -16,7 +16,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@mosaic-design/release": ["libs/release/src/index.ts"]
+            "@mosaic-design/release": ["packages/release/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
