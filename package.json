@@ -19,7 +19,7 @@
         ]
     },
     "devDependencies": {
-        "@mosaic-design/workspace": "1.2.2",
+        "@mosaic-design/workspace": "1.4.0",
         "@nrwl/eslint-plugin-nx": "15.8.1",
         "@nrwl/jest": "15.8.1",
         "@nrwl/js": "15.8.1",
