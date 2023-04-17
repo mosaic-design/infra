@@ -2,7 +2,6 @@
 import chalk from 'chalk';
 import request from 'request';
 
-
 const HTTP_CODE_OK = 200;
 const { green, red } = chalk;
 
@@ -21,19 +20,24 @@ export function notify(releaseData: any) {
         channel: `${channel}`,
         username: 'Wall-e',
         short: false,
-        text: `## ${releaseData.releaseTitle}\n ${releaseData.releaseNotes}`
+        text: `## ${releaseData.releaseTitle}\n ${releaseData.releaseNotes}`,
     };
 
-    console.log('POST notification: ', { url: matterMost, headers, body: JSON.stringify(body) });
+    console.log('POST notification: ', {
+        url: matterMost,
+        headers,
+        body: JSON.stringify(body),
+    });
 
-    //@ts-ignore
     request.post(
         // escape single quote
         { url: matterMost, headers, body: JSON.stringify(body) },
         (error, response, responseBody) => {
             if (error || response.statusCode !== HTTP_CODE_OK) {
                 // tslint:disable-next-line:no-console
-                console.error(red(`  ✘   Could not post notification in Mattermost.`));
+                console.error(
+                    red(`  ✘   Could not post notification in Mattermost.`)
+                );
                 console.log(response.statusCode, responseBody);
 
                 return;
@@ -45,5 +49,8 @@ export function notify(releaseData: any) {
 }
 
 export function verifyNotificationPossibility() {
-    return process.env['MATTERMOST_ENDPOINT_URL'] && process.env['MATTERMOST_CHANNEL'];
+    return (
+        process.env['MATTERMOST_ENDPOINT_URL'] &&
+        process.env['MATTERMOST_CHANNEL']
+    );
 }

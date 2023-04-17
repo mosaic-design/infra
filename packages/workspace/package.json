@@ -1,0 +1,45 @@
+{
+    "name": "@mosaic-design/workspace",
+    "description": "Mosaic Workspace",
+    "version": "0.0.0",
+    "license": "MIT",
+    "main": "src/index.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "library",
+        "nx",
+        "nrwl",
+        "executors"
+    ],
+    "generators": "./generators.json",
+    "executors": "./executors.json",
+    "exports": {
+        "./*": {
+            "default": "./*"
+        }
+    },
+    "peerDependencies": {
+        "@mosaic-design/tokens-builder": "*"
+    },
+    "devDependencies": {
+        "react-docgen-typescript": "^{{VERSION}}",
+        "nx": "^{{VERSION}}",
+        "@rollup/plugin-node-resolve": "^{{VERSION}}",
+        "autoprefixer": "^{{VERSION}}",
+        "scss-bundle": "^{{VERSION}}",
+        "rollup-plugin-copy": "^{{VERSION}}",
+        "rollup-plugin-swc": "^{{VERSION}}",
+        "rollup-plugin-typescript2": "^{{VERSION}}",
+        "@nrwl/web": "^{{VERSION}}",
+        "rollup-plugin-postcss": "^{{VERSION}}",
+        "rxjs-for-await": "^{{VERSION}}",
+        "rxjs": "^{{VERSION}}",
+        "rollup": "^{{VERSION}}",
+        "@rollup/pluginutils": "^{{VERSION}}",
+        "@nrwl/workspace": "^{{VERSION}}",
+        "@nrwl/devkit": "^{{VERSION}}",
+        "@nrwl/webpack": "^{{VERSION}}"
+    }
+}

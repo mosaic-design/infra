@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "executors": {
+        "build-icons": {
+            "implementation": "./src/executors/build-icons/executor",
+            "schema": "./src/executors/build-icons/schema.json",
+            "description": "build icon components executor"
+        },
+        "build-library": {
+            "implementation": "./src/executors/build-library/executor",
+            "schema": "./src/executors/build-library/schema.json",
+            "description": "build library sources executor"
+        },
+        "build-tokens": {
+            "implementation": "./src/executors/build-tokens/executor",
+            "schema": "./src/executors/build-tokens/schema.json",
+            "description": "build design tokens executor"
+        }
+    }
+}

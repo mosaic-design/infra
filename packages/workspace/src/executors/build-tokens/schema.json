@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "cli": "nx",
+    "$id": "build-tokens",
+    "type": "object",
+    "properties": {
+        "tsConfig": {
+            "type": "string",
+            "description": "The path to tsconfig file."
+        },
+        "outputPath": {
+            "type": "string",
+            "description": "The output path of the generated files."
+        },
+        "tokens": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Design tokens files mask."
+            }
+        },
+        "copy": {
+            "type": "array",
+            "description": "List of static assets to copy",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["outputPath", "tokens", "tsConfig"]
+}

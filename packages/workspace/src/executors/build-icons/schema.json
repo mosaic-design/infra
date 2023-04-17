@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "cli": "nx",
+    "$id": "build-icons",
+    "type": "object",
+    "properties": {
+        "tsConfig": {
+            "type": "string",
+            "description": "The path to tsconfig file."
+        },
+        "iconsPath": {
+            "type": "string",
+            "description": "Location of the SVG icon files."
+        },
+        "outputPath": {
+            "type": "string",
+            "description": "The output path of the generated files."
+        }
+    },
+    "required": ["outputPath", "iconsPath", "tsConfig"]
+}

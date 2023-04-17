@@ -16,7 +16,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@mosaic-design/release": ["packages/release/src/index.ts"]
+            "@mosaic-design/release": ["packages/release/src/index.ts"],
+            "@mosaic-design/workspace": ["packages/workspace/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

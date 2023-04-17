@@ -1,0 +1,89 @@
+{
+    "name": "workspace",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "packages/workspace/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@mosaic-design/workspace:build-library",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/workspace",
+                "entryFile": "libs/workspace/index.ts",
+                "project": "libs/workspace/package.json",
+                "tsConfig": "libs/workspace/tsconfig.lib.json",
+                "format": "commonjs",
+                "assets": [
+                    {
+                        "input": "./libs/workspace/src/executors/build-icons",
+                        "glob": "**/*.json",
+                        "output": "./src/executors/build-icons"
+                    },
+                    {
+                        "input": "./libs/workspace/src/executors/build-icons/templates",
+                        "glob": ".",
+                        "output": "./src/executors/build-icons"
+                    },
+                    {
+                        "input": "./libs/workspace/src/executors/build-library",
+                        "glob": "**/*.json",
+                        "output": "./src/executors/build-library"
+                    },
+                    {
+                        "input": "./libs/workspace/src/executors/build-tokens",
+                        "glob": "**/*.json",
+                        "output": "./src/executors/build-tokens"
+                    },
+                    {
+                        "glob": "libs/react-components/README.md",
+                        "input": ".",
+                        "output": "."
+                    },
+                    {
+                        "glob": "libs/react-components/LICENSE",
+                        "input": ".",
+                        "output": "."
+                    },
+                    {
+                        "input": "./libs/workspace",
+                        "glob": "generators.json",
+                        "output": "."
+                    },
+                    {
+                        "input": "./libs/workspace",
+                        "glob": "executors.json",
+                        "output": "."
+                    }
+                ]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+                "{options.outputFile}"
+            ],
+            "options": {
+                "lintFilePatterns": [
+                    "packages/workspace/**/*.ts"
+                ]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+                "jestConfig": "packages/workspace/jest.config.ts",
+                "passWithNoTests": true
+            },
+            "configurations": {
+                "ci": {
+                    "ci": true,
+                    "codeCoverage": true
+                }
+            }
+        }
+    },
+    "tags": []
+}
